@@ -27,7 +27,7 @@ const RootNavigator = StackNavigator({
         alignSelf: 'center',
         fontWeight: 'bold',
         fontFamily: 'Roboto',
-        color: '#e24453',
+        color: '#fff',
       },
       //  headerLeft: (<View><Text>Back</Text></View>),
       //  headerRight: (<View><Text>rrr</Text></View>)

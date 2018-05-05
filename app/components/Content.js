@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import { List, ListItem } from 'react-native-elements'
 
+const list = [
+    {
+        name: 'Amy Farha',
+        sub: "cloudy",
+        temp: 23
+    },
+    {
+        name: 'Chris Jackson',
+        sub: "sunny",
+        temp: 22
+    },
+    {
+        name: 'Chris hansman',
+        sub: "cloudy",
+        temp: 24
+    },
+]
 
 class Content extends Component {
     constructor(props) {
@@ -9,11 +27,26 @@ class Content extends Component {
 
         }
     }
+    itemPressed(item){
+        console.log(item)
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}> Welcome to React Native!</Text>
-                <Text style={styles.instructions}>  To get started, edit App.js  </Text>
+                <List containerStyle={{ backgroundColor:"#fff", marginTop: 0 }}>
+                    {
+                        list.map((l, i) => (
+                            <ListItem
+                                key={i}
+                                title={<Text style={styles.titleStyle}> {l.name}</Text>}
+                                subtitle={<Text style={styles.subText}> {l.sub}</Text>}
+                                rightTitle={<Text style={styles.tempStyle}> {l.temp} °C </Text>}
+                                hideChevron={true}
+                                onPress={()=>this.itemPressed(l)}
+                            />
+                        ))
+                    }
+                </List>
             </View>
         );
     }
@@ -22,20 +55,22 @@ class Content extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        backgroundColor: '#fff',
     },
-    welcome: {
+    titleStyle: {
         fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+        color: "#001"
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    tempStyle: {
+        fontSize: 28,
+        fontWeight: "bold",
+        color: "#022"
     },
+    subText: {
+        color: 'grey'
+    }
 });
 
 export default Content
