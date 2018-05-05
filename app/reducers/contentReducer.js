@@ -1,12 +1,12 @@
 export default function reducer(state = {
-    authenticating: false,
+    getAllContents: [],
 }, action) {
     switch (action.type) {
         // ------------------------------------------------------------------
-        case "LOGIN": {
+        case "GET_ALL_CONTENTS": {
             return {
                 ...state,
-                authenticating: true
+                getAllContents: action.payload.getAllContents
             }
         }
         default:
