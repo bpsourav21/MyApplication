@@ -9,9 +9,6 @@ class Content extends Component {
 
         }
     }
-    static navigationOptions = {
-        title: 'Content',
-      };
     render() {
         return (
             <View style={styles.container}>

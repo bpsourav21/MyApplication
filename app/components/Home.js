@@ -9,10 +9,8 @@ class Home extends Component {
 
         }
     }
-
-    static navigationOptions = {
-        headerMode: "none"
-    };
+    componentDidMount(props){
+    }
     render() {
         return (
             <View style={styles.container}>
