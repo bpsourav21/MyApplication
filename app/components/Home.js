@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 
 
@@ -42,5 +43,9 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
-
-export default Home
+// ======================== REDUX CONNECTORS ========================
+const mapStateToProps = (state) => {
+    return {
+    };
+};
+export default connect(mapStateToProps)(Home); 

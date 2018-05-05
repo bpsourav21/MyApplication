@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Provider, connect } from 'react-redux';
+import store from './store/store.js'
 import { StackNavigator } from 'react-navigation'
 import Content from './components/Content';
 import Home from './components/Home';
@@ -37,8 +39,11 @@ const RootNavigator = StackNavigator({
 
 class App extends Component {
   render() {
-    return <RootNavigator />
-
+    return (
+      <Provider store={store}>
+        <RootNavigator />
+      </Provider>
+    )
   }
 }
 

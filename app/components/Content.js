@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import { connect } from "react-redux";
 import { List, ListItem } from 'react-native-elements'
 
 const list = [
@@ -73,4 +74,9 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Content
+// ======================== REDUX CONNECTORS ========================
+const mapStateToProps = (state) => {
+    return {
+    };
+};
+export default connect(mapStateToProps)(Content); 
