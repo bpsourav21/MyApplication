@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Platform, StyleSheet, Text, View, Image } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements'
+import Maps from './Maps';
 
 
 class MapContent extends Component {
@@ -25,11 +26,12 @@ class MapContent extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.mapContainer}>
-                    <Image
+                    {/* <Image
                         // style={{ height: 250 }}
                         // resizeMode="cover"
                         source={require('./../pic.jpg')}
-                    />
+                    /> */}
+                    <Maps/>
                 </View>
                 <View style={styles.textContainer}>
                     <View style={styles.colContainer}>
