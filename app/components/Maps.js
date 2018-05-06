@@ -45,7 +45,7 @@ class Maps extends React.Component {
               latitude: this.state.latitude,
               longitude: this.state.longitude
             }}
-            pinColor={'blue'}
+            pinColor={'red'}
             title={"User's Location"}
           />
         </MapView>

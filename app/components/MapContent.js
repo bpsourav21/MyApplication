@@ -26,27 +26,27 @@ class MapContent extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.mapContainer}>
-                    <Maps/>
+                    <Maps />
                 </View>
                 <View style={styles.textContainer}>
                     <View style={styles.colContainer}>
                         <View style={styles.col1}>
-                            <Text style={{ fontSize: 24, fontWeight: "bold", color: "#000" }}>{selectItem.name} </Text>
-                            <Text style={{ fontSize: 20, }}>{selectItem.weather[0].description}</Text>
-                            <Text style={{ fontSize: 16, }}>Humidity: {selectItem.main.humidity} </Text>
-                            <Text style={{ fontSize: 16, }}>Wind Speed: {selectItem.wind.speed} </Text>
-                            <Text style={{ fontSize: 16, }}>Max Temp: {this.convertTemp(selectItem.main.temp_max)} </Text>
-                            <Text style={{ fontSize: 16, }}>Min Temp: {this.convertTemp(selectItem.main.temp_min)} </Text>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 24, fontWeight: "bold", color: "#000" }}>{selectItem.name} </Text>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 20, }}>{selectItem.weather[0].description}</Text>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 16, }}>Humidity: {selectItem.main.humidity} </Text>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 16, }}>Wind Speed: {selectItem.wind.speed} </Text>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 16, }}>Max Temp: {this.convertTemp(selectItem.main.temp_max)} </Text>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 16, }}>Min Temp: {this.convertTemp(selectItem.main.temp_min)} </Text>
                         </View>
                         <View style={styles.col2}>
-                            <Text style={{ fontSize: 32, fontWeight: "bold", color: "#000" }}>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 32, fontWeight: "bold", color: "#000" }}>
                                 {this.convertTemp(selectItem.main.temp)}
                             </Text>
                             <Image
-                                style={{ width: 100, height: 100, marginTop: -20}}
-                                source={{ uri: "http://openweathermap.org/img/w/"+selectItem.weather[0].icon+".png" }}
+                                style={{ width: 100, height: 100, marginTop: -20 }}
+                                source={{ uri: "http://openweathermap.org/img/w/" + selectItem.weather[0].icon + ".png" }}
                             />
-                            <Text style={{ fontSize: 18, }}>{selectItem.weather[0].main}</Text>
+                            <Text style={{ fontFamily: 'Roboto', fontSize: 18, }}>{selectItem.weather[0].main}</Text>
                         </View>
                     </View>
                 </View>
@@ -79,10 +79,11 @@ const styles = StyleSheet.create({
     },
     col2: {
         flex: 1,
-        alignItems:"center"
+        alignItems: "center"
     },
     welcome: {
-        fontSize: 20,
+        fontFamily: 'Roboto',
+         fontSize: 20,
         textAlign: 'center',
         margin: 10,
     },
