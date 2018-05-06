@@ -26,11 +26,6 @@ class MapContent extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.mapContainer}>
-                    {/* <Image
-                        // style={{ height: 250 }}
-                        // resizeMode="cover"
-                        source={require('./../pic.jpg')}
-                    /> */}
                     <Maps/>
                 </View>
                 <View style={styles.textContainer}>
