@@ -1,5 +1,6 @@
 export default function reducer(state = {
     getAllContents: [],
+    selectItem:[]
 }, action) {
     switch (action.type) {
         // ------------------------------------------------------------------
@@ -7,6 +8,13 @@ export default function reducer(state = {
             return {
                 ...state,
                 getAllContents: action.payload.getAllContents
+            }
+        }
+        // ------------------------------------------------------------------
+        case "SELECT_ONE_ITEM": {
+            return {
+                ...state,
+                selectItem: action.payload.selectItem
             }
         }
         default:

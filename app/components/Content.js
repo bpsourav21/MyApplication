@@ -1,60 +1,54 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { connect } from "react-redux";
 import { List, ListItem } from 'react-native-elements'
-import {getAllContents} from '../actions/contentAction'
-
-// const list = [
-//     {
-//         name: 'Amy Farha',
-//         sub: "cloudy",
-//         temp: 23
-//     },
-//     {
-//         name: 'Chris Jackson',
-//         sub: "sunny",
-//         temp: 22
-//     },
-//     {
-//         name: 'Chris hansman',
-//         sub: "cloudy",
-//         temp: 24
-//     },
-// ]
+import { getAllContents, selectOneItem } from '../actions/contentAction'
 
 class Content extends Component {
     constructor(props) {
         super(props)
-        this.state = {list:[]}
+        this.state = { list: [] }
         this.props.dispatch(getAllContents())
     }
-    componentWillReceiveProps(newprops){
+    componentWillReceiveProps(newprops) {
         this.setState({
             list: newprops.getAllContents.list
         })
     }
-    itemPressed(item){
-        console.log(item)
+    convertTemp(temp) {
+        var str = ''
+        var number = (temp - 273.15)
+        var celcius = Math.round(Number(number))
+        str = celcius + ' °C'
+        return str
+    }
+    itemPressed(item) {
+        // console.log(item)
+        this.props.dispatch(selectOneItem(item, ()=> {
+             this.props.navigation.navigate('MapView')
+        }))
     }
     render() {
-        var list= this.state.list
+        var list = this.state.list
         return (
             <View style={styles.container}>
-                <List containerStyle={{ backgroundColor:"#fff", marginTop: 0 }}>
-                    {
-                        list.map((l, i) => (
-                            <ListItem
-                                key={i}
-                                title={<Text style={styles.titleStyle}> {l.name}</Text>}
-                                subtitle={<Text style={styles.subText}> {l.weather[0].main}</Text>}
-                                rightTitle= {l.main.temp- 273.15  + ' °C' }
-                                rightTitleStyle={styles.tempStyle}
-                                hideChevron={true}
-                                onPress={()=>this.itemPressed(l)}
-                            />
-                        ))
-                    }
-                </List>
+                <ScrollView>
+                    <List containerStyle={{ backgroundColor: "#fff", marginTop: 0 }}>
+                        {
+                            list.map((l, i) => (
+                                <ListItem
+                                    key={i}
+                                    title={<Text style={styles.titleStyle}> {l.name}</Text>}
+                                    subtitle={<Text style={styles.subText}> {l.weather[0].main}</Text>}
+                                    rightTitle={this.convertTemp(l.main.temp)}
+                                    rightTitleStyle={styles.tempStyle}
+                                    hideChevron={true}
+                                    onPress={() => this.itemPressed(l)}
+                                />
+                            ))
+                        }
+                    </List>
+                </ScrollView>
             </View>
         );
     }

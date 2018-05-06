@@ -26,3 +26,18 @@ export function getAllContents() {
             });
     };
 }
+// ==========================================================
+//select one content
+// ==========================================================
+export function selectOneItem(item, callback){
+    return dispatch => {
+                dispatch({
+                    type: "SELECT_ONE_ITEM",
+                    payload: {
+                        selectItem: item
+                    }
+                })
+                callback()
+            }
+    }
+
