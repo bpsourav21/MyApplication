@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 import Content from '../components/Content';
 import Home from '../components/Home';
@@ -28,13 +30,14 @@ const RootNavigator = StackNavigator({
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
+          textAlign:"center",
           alignSelf: 'center',
           fontWeight: 'bold',
           fontFamily: 'Roboto',
           color: '#fff',
         },
         //  headerLeft: (<View><Text>Back</Text></View>),
-        //  headerRight: (<View><Text>rrr</Text></View>)
+        headerRight: (<View></View>)
       }
     }
   );
